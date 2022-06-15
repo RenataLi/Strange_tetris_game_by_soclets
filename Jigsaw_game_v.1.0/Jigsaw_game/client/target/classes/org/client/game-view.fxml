@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.client.GameController">
+   <right>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="labelName" text="player" textFill="#064228">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label fx:id="labelPlayers" />
+            <Label fx:id="labelMaxTime" text="общее время: 00:00" />
+            <Canvas fx:id="canvasNext" height="150.0" onDragDetected="#onDragStart" onMouseDragReleased="#onDragStop" width="150.0" />
+            <Label fx:id="labelWatch" text="00:00">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonRestart" mnemonicParsing="false" onAction="#onButtonRestart" text="FINISH">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <center>
+      <HBox fx:id="hbox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <Group>
+               <children>
+                  <Canvas fx:id="canvasField" height="362.0" onMouseDragOver="#onDragMove" onMouseDragReleased="#onDragStop" width="388.0" />
+                  <Canvas fx:id="canvasHighlightField" height="200.0" mouseTransparent="true" width="200.0" />
+               </children>
+            </Group>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
